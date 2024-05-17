@@ -1,4 +1,8 @@
+import MapComponent from "../components/Map";
+
 export const LandingPage = () => {
+    const selectedLocation = { lat: -30.0346, lng: -51.2177 }; // Defina a localização desejada aqui
+
     return (
         <div className="landing-page">
             <header className="jumbotron text-center">
@@ -25,6 +29,15 @@ export const LandingPage = () => {
                             </div>
                         </div>
                     </div>
+                    <div className="col-md-6 mt-4">
+                        <div className="card">
+                            <div className="card-body">
+                                <h2 className="card-title">Seu novo campo:</h2>
+                                <p className="card-text">Aqui está o texto do seu novo campo.</p>
+                                <button className="btn btn-primary">Ação do novo campo</button>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </main>
             <footer className="text-center py-4">
@@ -32,5 +45,4 @@ export const LandingPage = () => {
             </footer>
         </div>
     );
-}; 
-
+};
