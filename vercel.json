@@ -1,14 +1,14 @@
 {
     "builds": [
         {
-            "src": "backend/main.js",
+            "src": "backend/api.py",
             "use": "@now/python"
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "backend/main.py"
+            "dest": "backend/api.py"
         }
     ]
 }
