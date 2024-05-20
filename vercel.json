@@ -2,13 +2,13 @@
     "builds": [
         {
             "src": "backend/main.js",
-            "use": "@vercel/python"
+            "use": "@now/python"
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "main.py"
+            "dest": "backend/main.py"
         }
     ]
 }
