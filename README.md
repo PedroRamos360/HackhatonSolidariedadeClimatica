@@ -18,8 +18,7 @@ yarn start
 ```bash
 pip install fastapi
 pip install uvicorn
-pip install sqlalchemy
-pip install aiomysql
+pip install mariadb
 ```
 
 Então para rodar o projeto é só rodar:
