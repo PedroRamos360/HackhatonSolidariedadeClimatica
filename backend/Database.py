@@ -10,6 +10,24 @@ DB_PASS = os.getenv("DB_PASS")
 DB_URL = os.getenv("DB_URL")
 
 
+def create_db_tables():
+    db = Database()
+    db.execute_query(
+        """
+        CREATE TABLE IF NOT EXISTS shelters 
+        (
+            id INT AUTO_INCREMENT PRIMARY KEY, 
+            name VARCHAR(255),
+            description TEXT,
+            latitude FLOAT,
+            longitude FLOAT,
+            link_to_donate VARCHAR(255) 
+        )
+        """
+    )
+    db.close()
+
+
 class Database:
     def __init__(self):
         self.connection = self.__get_connection()
@@ -25,10 +43,3 @@ class Database:
 
     def close(self):
         self.connection.close()
-
-
-db = Database()
-db.execute_query(
-    "CREATE TABLE IF NOT EXISTS shelters (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), address VARCHAR(255), phone VARCHAR(255), email VARCHAR(255), description TEXT)"
-)
-db.close()
