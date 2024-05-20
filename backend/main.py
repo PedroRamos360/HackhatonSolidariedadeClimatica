@@ -1,6 +1,9 @@
 from fastapi import FastAPI, Depends, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
 from Database import Database, Shelter
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 database = Database()
@@ -12,6 +15,12 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.post("/start-db")
+async def start_db():
+    await database.create_db_and_tables()
+    return {"message": "Database started"}
 
 
 @app.get("/shelters")
