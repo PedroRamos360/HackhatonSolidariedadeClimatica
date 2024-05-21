@@ -1,4 +1,8 @@
-export const LandingPage = () => {
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+export const LandingPage: React.FC = () => {
+    const navigate = useNavigate(); 
     return (
         <div className="landing-page">
             <header className="jumbotron text-center">
@@ -13,9 +17,7 @@ export const LandingPage = () => {
                                 <h2 className="card-title">Econtre abrigos:</h2>
                                 <p className="card-text">Localize abrigos perto de você ou pesquise uma localização específica.</p>
                                 <button className="btn btn-primary" onClick={
-                                    () => {
-                                        window.location.href = '/mapa';
-                                    }
+                                    () => navigate('/mapa') 
                                 }>Econtre abrigos</button>
                             </div>
                         </div>
