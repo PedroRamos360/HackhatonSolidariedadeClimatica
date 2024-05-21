@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoiam9yZGFub3hhdmllciIsImEiOiJjbHdmcnVuaDkxeHdmMnFraHpvNXY3OWMxIn0.K4euWXNnd04YMRAHOX05UQ';
+mapboxgl.accessToken = process.env.MAP_BOX_TOKEN;
 
 export const ShelterMap = () => {
     const mapContainer = useRef(null);
