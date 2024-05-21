@@ -12,7 +12,11 @@ export const LandingPage = () => {
                             <div className="card-body">
                                 <h2 className="card-title">Econtre abrigos:</h2>
                                 <p className="card-text">Localize abrigos perto de você ou pesquise uma localização específica.</p>
-                                <button className="btn btn-primary">Econtre abrigos</button>
+                                <button className="btn btn-primary" onClick={
+                                    () => {
+                                        window.location.href = '/mapa';
+                                    }
+                                }>Econtre abrigos</button>
                             </div>
                         </div>
                     </div>
