@@ -12,7 +12,7 @@ DB_URL = os.getenv("DB_URL")
 
 def create_db_tables():
     db = Database()
-    db.execute_query(
+    db.update_query(
         """
         CREATE TABLE IF NOT EXISTS shelters 
         (
@@ -30,16 +30,21 @@ def create_db_tables():
 
 class Database:
     def __init__(self):
-        self.connection = self.__get_connection()
+        self.__connection = self.__get_connection()
+        self.__cursor = self.__connection.cursor()
 
     def __get_connection(self):
         return mariadb.connect(
             user=DB_USER, password=DB_PASS, host=DB_URL, port=3306, database="hackaton"
         )
 
-    def execute_query(self, query: str):
-        self.cursor = self.connection.cursor()
-        self.cursor.execute(query)
+    def update_query(self, query: str):
+        self.__cursor.execute(query)
+        self.__connection.commit()
+
+    def get_query(self, query: str):
+        self.__cursor.execute(query)
+        return self.__cursor.fetchall()
 
     def close(self):
-        self.connection.close()
+        self.__connection.close()
